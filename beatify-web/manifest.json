@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Market Sentiment AI",
+  "version": "2.1.0",
+  "description": "Real-time stock market sentiment analysis for USA & India using Gemini Nano.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "ai",
+    "languageModel",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://news.google.com/*",
+    "https://finance.yahoo.com/*",
+    "https://www.federalreserve.gov/*",
+    "https://www.moneycontrol.com/*",
+    "https://economictimes.indiatimes.com/*",
+    "https://www.livemint.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
